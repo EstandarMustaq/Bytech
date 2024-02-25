@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        Contato
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Entre em Contato Conosco</h5>
+        <p class="card-text">Preencha o formulário abaixo para entrar em contato conosco.</p>
+        <form id="contactForm" method="GET" action="/send_email">
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="name" name="name" placeholder=" " required>
+                <label for="name">Nome</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="email" name="email" placeholder=" " required>
+                <label for="email">E-mail</label>
+            </div>
+            <div class="form-group mb-3">
+                <textarea class="form-control" id="message" name="message" placeholder="Insera a sua mensagem aqui." rows="4" cols="50" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary end-0">
+                Enviar
+            </button>
+        </form>
+    </div>
+</div><br>
+
+{% if message %}
+<div class="alert {% if success %}alert-success{% else %}alert-danger{% endif %} custom-style" role="alert">
+  {{ message }}
+</div>
+{% endif %}
+
+<p style="margin-bottom: 0;">Nossas redes</p>
+
+<div class="container">
+  <div class="row row-cols-0 row-cols-sm-2 row-cols-md-5 py-2 my-2 border-top"></div>
+</div>
+
+<ul class="social-icons">
+  <li><a href="#"><i class="bi bi-facebook" style="font-size: 32px;"></i></a></li>
+  <li><a href="#"><i class="bi bi-whatsapp" style="font-size: 32px;"></i></a></li>
+  <li><a href="#"><i class="bi bi-telegram" style="font-size: 32px;"></i></a></li>
+  <li><a href="#"><i class="bi bi-instagram" style="font-size: 32px;"></i></a></li>
+</ul>
+
+<div class="card">
+  <div class="card-body">
+    <h1 class="display-4">Inscreva-se no Canal do YouTube</h1>
+    <p class="lead">Inscreva-se para receber atualizações sobre nossos vídeos!</p>
+    <form id="subscribe-form" action="/subscribe" method="post">
+      <div class="input-group mb-3">
+        <input type="email" class="form-control rounded-start-4" id="email" name="email" placeholder="Seu e-mail" required>
+        <button type="submit" class="btn btn-primary rounded-end-4">Inscrever-se</button>
+      </div>
+      <div id="emailHelp" class="form-text">Nós nunca compartilharemos seu e-mail com ninguém. Saiba mais sobre nossa <a href="#" style="text-decoration: none;">Política de Privacidade</a>.</div>
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}
