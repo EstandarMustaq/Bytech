@@ -1,2 +1,2 @@
-# Bytech
+# bytech
 App
